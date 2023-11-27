@@ -12,9 +12,9 @@ public class Task2 {
         Player player5 = new Player(90 + (int) random.nextInt(10));
         Player player6 = new Player(90 + (int) random.nextInt(10));
 
-
-        for (int i = 1; i == player1.stamina; i++)
+        while (player1.stamina > 0) {
             player1.run();
+        }
 
         System.out.println(player1.stamina);
         Player.info();
