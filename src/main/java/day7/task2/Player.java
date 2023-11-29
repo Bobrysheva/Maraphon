@@ -1,7 +1,7 @@
 package day7.task2;
 
 public class Player {
-    public int stamina;
+    private int stamina;
     public final int MAX_STAMINA = 100;
     public final int MIN_STAMINA = 0;
     private static int countPlayers = 0;
@@ -12,7 +12,6 @@ public class Player {
             countPlayers++;
     }
 
-
     public void run() {
         if (stamina == 0)
             return;
@@ -20,9 +19,6 @@ public class Player {
         stamina--;
         if (stamina == 0)
             countPlayers--;
-
-
-
     }
 
     public int getStamina() {
