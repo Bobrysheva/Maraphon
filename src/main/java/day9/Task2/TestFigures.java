@@ -11,31 +11,31 @@ public class TestFigures {
                 new Circle(4, "Red"),
                 new Circle(10, "Red"),
                 new Circle(5, "Blue")};
+        System.out.println(calculateRedPerimeter(figures));
+        System.out.println(calculateRedArea(figures));
+    }
 
-        public static double calculateRedPerimeter(Figure[] figures){
-            double redPer = 0;
-            for (int i = 0; i < figures.length; i++) {
-                if (figures[i].equals("Red")) {
-                    redPer += figures[i].perimeter();
-
-                }
-                System.out.println(redPer);
-
-
-            }
-            public static double calculateRedArea (Figure[] figures){
-                double redArea = 0;
-                for (int i = 0; i < figures.length; i++) {
-                    if (figures[i].equals("Red")) {
-
-                        redArea += figures[i].area();
-                    }
-                    System.out.println(redArea);
-
-                }
+    public static double calculateRedPerimeter(Figure[] figures) {
+        double redPer = 0;
+        for (int i = 0; i < figures.length; i++) {
+            if (figures[i].colour.equals("Red")) {
+                redPer += figures[i].perimeter();
             }
         }
+        return redPer;
+    }
+
+    public static double calculateRedArea(Figure[] figures) {
+        double redArea = 0;
+        for (int i = 0; i < figures.length; i++) {
+            if (figures[i].colour.equals("Red")) {
+                redArea += figures[i].area();
+            }
+        }
+        return redArea;
     }
 }
+
+
 
 
