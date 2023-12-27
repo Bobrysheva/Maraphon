@@ -12,33 +12,47 @@ public class Task2 {
 
             File file2 = new File("file2.txt");
             int[] numbers = new int[1000];
-            int b = 4;
-            int a = numbers.length/b;
-            long [] numbers2 = new long[a];
+            int b = 20;
+            int a = numbers.length / b;
+            double[] numbers2 = new double[a];
 
             for (int i = 0; i < numbers.length; i++) {
-                numbers[i] = (int) (Math.random() * 1000);
+                numbers[i] = (int) (Math.random() * 100);
             }
-            for (int d=1; d<=a; d++){
-                int countFour = 0;
+            for (int d = 1; d <= a; d++) {
+                int countTwenty = 0;
                 for (int j = 1; j <= b; j++) {
-                countFour += (numbers[j*d - 1]);
+                    countTwenty += (numbers[j * d - 1]);
                 }
-                numbers2[d-1] = countFour/b;
+                numbers2[d - 1] = (double) countTwenty / b;
             }
-            System.out.println(Arrays.toString(numbers));
             PrintWriter printWriter = new PrintWriter(file1);
             printWriter.println(Arrays.toString(numbers));
 
-            System.out.println(Arrays.toString(numbers2));
             PrintWriter printWriter2 = new PrintWriter(file2);
-            printWriter2.println(Arrays.toString(numbers2));
+            for (int i = 0; i < numbers2.length; i++) {
+                printWriter2.print(numbers2[i] + " ");
 
+            }
 
             printWriter.close();
             printWriter2.close();
+            printResult(file2);
+
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
         }
+    }
+
+    public static void printResult(File file) throws FileNotFoundException {
+        Scanner catchNumbers = new Scanner(file);
+        String line = catchNumbers.nextLine();
+        String[] stringNumbers = line.split(" ");
+
+        double sum = 0;
+        for (String number : stringNumbers) {
+            sum += Double.parseDouble(number);
+        }
+        System.out.println((int) sum);
     }
 }
